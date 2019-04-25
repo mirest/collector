@@ -25,14 +25,18 @@ class UserManager(BaseUserManager):
         return self._create_user(email, password, **extra_fields)
 
     def create_superuser(self, email, password, **extra_fields):
-        extra_fields.setdefault('is_admin', True)
+        extra_fields.setdefault('is_superuser', True)
+        extra_fields.setdefault('is_staff', True)
+        user = self.create_user(email,password,**extra_fields)
 
 class User(BaseModel, AbstractBaseUser, PermissionsMixin):
     username = models.CharField(db_index=True, max_length=255, unique=True)
 
     email = models.EmailField(db_index=True, max_length=255, unique=True)
 
-    phonenumber = models.BooleanField(default=True)
+    name = models.CharField(max_length=255,default='dfghjk')
+
+    phonenumber = models.CharField(max_length=255)
 
     is_tenant = models.BooleanField(default=True)
 
@@ -40,7 +44,10 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
 
     is_admin = models.BooleanField(default=False)
 
+    is_staff = models.BooleanField(default=False)
+
     USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email',]
     objects = UserManager()
 
     def __str__(self):

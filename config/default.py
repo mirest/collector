@@ -40,9 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'authentication',
+    'authentication.apps.UsersConfig',
     'social_django',
-    'houses',
+    'houses.apps.HousesConfig',
     'rest_framework_social_oauth2',
 
 ]
