@@ -1,6 +1,6 @@
 from django.db import models
 
-from social.models import User
+from authentication.models import User
 from utils.base_model import BaseModel
 
 

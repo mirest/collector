@@ -21,6 +21,6 @@ core_schema_view = include_docs_urls(title='API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/login/',include(('social.urls','login'),namespace='login')),
+    path('api/login/',include(('authentication.urls','login'),namespace='login')),
     path('',core_schema_view),
 ]

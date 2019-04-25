@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'social',
+    'authentication',
     'social_django',
     'houses',
     'rest_framework_social_oauth2',
@@ -150,4 +150,4 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get(
     'SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')
 
 
-AUTH_USER_MODEL = 'social.User'
+AUTH_USER_MODEL = 'authentication.User'
