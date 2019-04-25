@@ -5,6 +5,7 @@ from django.contrib.auth.models import (
     AbstractBaseUser, BaseUserManager, PermissionsMixin
 )
 from django.db import models
+from utils.base_model import BaseModel
 
 from config.default import SECRET_KEY
 
@@ -26,7 +27,7 @@ class UserManager(BaseUserManager):
     def create_superuser(self, email, password, **extra_fields):
         extra_fields.setdefault('is_admin', True)
 
-class User(AbstractBaseUser, PermissionsMixin):
+class User(BaseModel, AbstractBaseUser, PermissionsMixin):
     username = models.CharField(db_index=True, max_length=255, unique=True)
 
     email = models.EmailField(db_index=True, max_length=255, unique=True)

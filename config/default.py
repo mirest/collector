@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'social',
     'social_django',
+    'houses',
     'rest_framework_social_oauth2',
 
 ]
