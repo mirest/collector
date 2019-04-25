@@ -10,9 +10,9 @@ class House(BaseModel):
 
     rate = models.FloatField(blank=True)
 
-    owner_id = models.ForeignKey(User,unique=False,on_delete='CASCADE',)
+    tenant_id = models.ForeignKey(User,unique=False,on_delete='CASCADE',)
 
-    owner_id = models.ForeignKey(User,unique=False,on_delete='CASCADE',)    
+    owner_id = models.ForeignKey(User,unique=False,on_delete='CASCADE',related_name='landlord')    
 
     is_occupied = models.BooleanField(default=False)
 

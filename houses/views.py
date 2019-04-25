@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.generics import ListCreateAPIView
+from .serializers import HouseSerializer
+from .models import House
 
-# Create your views here.
+class HouseView(ListCreateAPIView):
+    serializer_class = HouseSerializer
+    queryset = House.objects.all()
+    
