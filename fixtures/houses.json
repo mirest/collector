@@ -1,0 +1,44 @@
+[
+{
+    "model": "houses.house",
+    "pk": "01d69dc1-0ecc-4053-b72f-03a717d4c949",
+    "fields": {
+        "date_created": "2019-04-25T18:30:36.182Z",
+        "updated_at": "2019-04-25T18:31:37.672Z",
+        "house_name": "12345 n",
+        "rate": 132432.0,
+        "tenant_id": "8c884459-9da4-4716-8fc3-e64402572c20",
+        "owner_id": "f6385b81-7017-4cd0-aef6-f47d99975b49",
+        "is_occupied": true,
+        "start_date": "2019-04-25T18:30:34Z"
+    }
+},
+{
+    "model": "houses.house",
+    "pk": "7ef8f67a-5765-4038-a6bb-406949b25e3e",
+    "fields": {
+        "date_created": "2019-04-25T18:29:05.733Z",
+        "updated_at": "2019-04-25T18:29:20.882Z",
+        "house_name": "12345",
+        "rate": 1000000.0,
+        "tenant_id": "f6385b81-7017-4cd0-aef6-f47d99975b49",
+        "owner_id": "f6385b81-7017-4cd0-aef6-f47d99975b49",
+        "is_occupied": true,
+        "start_date": "2019-04-25T18:29:03Z"
+    }
+},
+{
+    "model": "houses.house",
+    "pk": "f2bd43d2-fcb0-44cd-8142-75c4f8b51238",
+    "fields": {
+        "date_created": "2019-04-25T18:31:04.529Z",
+        "updated_at": "2019-04-25T18:31:06.684Z",
+        "house_name": "12345kk",
+        "rate": 100000000.0,
+        "tenant_id": "8c884459-9da4-4716-8fc3-e64402572c20",
+        "owner_id": "f6385b81-7017-4cd0-aef6-f47d99975b49",
+        "is_occupied": true,
+        "start_date": "2019-04-25T18:31:01Z"
+    }
+}
+]
