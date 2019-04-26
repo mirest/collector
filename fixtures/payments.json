@@ -1,0 +1,20 @@
+[
+    {
+        "model": "payments.invoices",
+        "pk": "c40b2f27-1e29-484d-ae0c-f55d9410dae2",
+        "fields": {
+            "date_created": "2019-04-29T12:44:17.010Z",
+            "updated_at": null,
+            "deleted_at": null,
+            "is_deleted": false,
+            "amount_paid": 20000.0,
+            "description": "dskjdnfk",
+            "payment_date": "2019-04-29",
+            "start_date": null,
+            "end_date": null,
+            "invoice_no": "dfkjdfkj",
+            "house": "05848e3a-4ca1-4ec4-bdf1-98f5780062d5",
+            "tenant": "2f7f8f92-4287-4f30-91b1-7aca9ab4fdaf"
+        }
+    }
+]

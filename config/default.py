@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'authentication.apps.UsersConfig',
     'social_django',
     'houses.apps.HousesConfig',
+    'payments.apps.PaymentsConfig',
     'rest_framework_social_oauth2',
+    'django_filters',
 
 ]
 
@@ -141,6 +143,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'config.backend.SocialAuthentication',
 
+    ),
+    'DEFAULT_FILTER_BACKENDS': (
+        'django_filters.rest_framework.DjangoFilterBackend',
     )
 }
 

@@ -10,13 +10,16 @@ class House(BaseModel):
 
     rate = models.FloatField(blank=True)
 
-    tenant_id = models.ForeignKey(User,unique=False,on_delete='CASCADE',)
+    tenant_id = models.ForeignKey(
+        User, unique=False, on_delete='CASCADE', blank=True, null=True,)
 
-    owner_id = models.ForeignKey(User,unique=False,on_delete='CASCADE',related_name='landlord')    
+    owner_id = models.ForeignKey(
+        User, unique=False, on_delete='CASCADE',
+        related_name='landlord', blank=True, null=True)
 
     is_occupied = models.BooleanField(default=False)
 
-    start_date = models.DateTimeField(blank=True,null=True)    
+    start_date = models.DateField(blank=True, null=True)
 
     def __str__(self):
         return self.house_name
