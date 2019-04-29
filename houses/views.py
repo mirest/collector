@@ -1,10 +1,13 @@
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
-from rest_framework.response import Response
 from django.db.models.query import QuerySet
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import filters
+from rest_framework.generics import (ListCreateAPIView,
+                                     RetrieveUpdateDestroyAPIView)
+from rest_framework.response import Response
 
-
-from .serializers import HouseSerializer
+from .filters import HouseFilter
 from .models import House
+from .serializers import HouseSerializer
 
 
 class HouseView(ListCreateAPIView):
@@ -13,6 +16,9 @@ class HouseView(ListCreateAPIView):
     """
     serializer_class = HouseSerializer
     queryset = House.objects.all()
+    filter_backends = (DjangoFilterBackend, filters.SearchFilter, )
+    filter_class = HouseFilter
+    search_fields = ('tenant_id__name',)
 
 
 class SingleHouseView(RetrieveUpdateDestroyAPIView):
