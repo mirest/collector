@@ -1,0 +1,27 @@
+{
+    "name": "collector",
+    "scripts": {},
+    "env": {
+        "SECRET_KEY": {
+            "required": true
+        },
+        "DEBUG": {
+            "required": true
+        },
+        "DJANGO_SETTINGS_MODULE": {
+            "required": true
+        },
+        "SOCIAL_AUTH_GOOGLE_OAUTH2_KEY": {
+            "required": true
+        },
+        "SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET": {
+            "required": true
+        }
+    },
+    "formation": {},
+    "addons": [
+        "heroku-postgresql"
+    ],
+    "buildpacks": [],
+    "stack": "heroku-18"
+}
