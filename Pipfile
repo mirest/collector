@@ -22,6 +22,7 @@ django-rest-framework-social-oauth2 = "*"
 django-filter = "*"
 python-dateutil = "==2.7.5"
 django-background-tasks = "*"
+whitenoise = "*"
 
 [requires]
 python_version = "3.7"
