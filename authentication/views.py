@@ -30,11 +30,12 @@ class SocialAuthView(generics.CreateAPIView):
                              })
         return Response({"error": "unknown login error"})
 
+
 class UserView(generics.RetrieveAPIView):
     serializer_class = UserSerializer
     permission_classes = (DjangoModelPermissions,)
     queryset = User.objects.none()
 
-    def get(self,request):
+    def get(self, request):
         serializer = self.serializer_class(request.user)
         return Response(serializer.data)

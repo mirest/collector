@@ -21,7 +21,11 @@ core_schema_view = include_docs_urls(title='API')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/login/',include(('authentication.urls','login'),namespace='login')),
-    path('api/houses/',include(('houses.urls','housed'),namespace='houses')),
-    path('',core_schema_view),
+    path('api/login/', include(('authentication.urls', 'login'),
+                               namespace='login')),
+    path('api/houses/', include(('houses.urls', 'houses'),
+                                namespace='houses')),
+    path('api/invoices/',
+         include(('payments.urls', 'invoices'), namespace='invoices')),
+    path('', core_schema_view),
 ]

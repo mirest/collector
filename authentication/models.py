@@ -9,6 +9,7 @@ from utils.base_model import BaseModel
 
 from config.default import SECRET_KEY
 
+
 class UserManager(BaseUserManager):
 
     def _create_user(self, email, password, **extra_fields):
@@ -27,14 +28,16 @@ class UserManager(BaseUserManager):
     def create_superuser(self, email, password, **extra_fields):
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_staff', True)
-        user = self.create_user(email,password,**extra_fields)
+        user = self.create_user(email, password, **extra_fields)
+
 
 class User(BaseModel, AbstractBaseUser, PermissionsMixin):
+
     username = models.CharField(db_index=True, max_length=255, unique=True)
 
     email = models.EmailField(db_index=True, max_length=255, unique=True)
 
-    name = models.CharField(max_length=255,default='dfghjk')
+    name = models.CharField(max_length=255, default='dfghjk')
 
     phonenumber = models.CharField(max_length=255)
 
@@ -47,7 +50,7 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'username'
-    REQUIRED_FIELDS = ['email',]
+    REQUIRED_FIELDS = ['email', ]
     objects = UserManager()
 
     def __str__(self):

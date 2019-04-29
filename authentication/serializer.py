@@ -9,5 +9,7 @@ class SocialSerializer(serializers.Serializer):
 
 
 class UserSerializer(serializers.Serializer):
-    email =serializers.EmailField()
+    email = serializers.EmailField()
     username = serializers.CharField()
+    name = serializers.CharField()
+    identifier = serializers.CharField()
