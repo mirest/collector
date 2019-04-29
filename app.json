@@ -3,7 +3,7 @@
     "scripts": {},
     "env": {
         "SECRET_KEY": {
-            "required": true
+            "generator": "secret"
         },
         "DEBUG": {
             "required": true
