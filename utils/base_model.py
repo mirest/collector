@@ -40,6 +40,7 @@ class BaseModel(models.Model):
 
     class Meta:
         abstract = True
+        ordering = ['date_created']
 
     def delete(self):
         self.deleted_at = datetime.now()
