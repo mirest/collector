@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/kimbugp/collector.svg?token=qaBKMRpXjcSqxNFYXbYq&branch=develop)](https://travis-ci.com/kimbugp/collector)
+[![Build Status](https://travis-ci.com/mirest/collector.svg?branch=develop)](https://travis-ci.com/mirest/collector)
 # Collector API
 Tracks tenants payments
 

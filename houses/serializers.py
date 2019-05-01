@@ -14,5 +14,5 @@ class HouseSerializer(serializers.ModelSerializer):
                   'start_date', 'tenant_id', 'owner_id', 'tenant', 'is_paid',
                   'owner', 'invoices')
         extra_kwargs = {'tenant_id': {'write_only': True, 'required': False},
-                        'owner_id': {
-            'write_only': True, 'required': False}}
+                        'owner_id': {'write_only': True, 'required': False},
+                        'invoices': {'read_only': True}}
