@@ -30,5 +30,21 @@
             "house": "05848e3a-4ca1-4ec4-bdf1-98f5780062d5",
             "tenant": "8c884459-9da4-4716-8fc3-e64402572c20"
         }
+    },
+    {
+        "model": "payments.invoices",
+        "pk": "1e2b409e-40da-4e2d-8dec-784896996a3e",
+        "fields": {
+            "date_created": "2019-04-29T18:36:57.282Z",
+            "updated_at": null,
+            "deleted_at": null,
+            "is_deleted": false,
+            "amount_paid": 10000000.0,
+            "description": "43retgfvefwdq",
+            "payment_date": "2019-04-29",
+            "invoice_no": "1234321",
+            "house": "b58d171f-0d01-458b-a953-c9dd0edb6c9c",
+            "tenant": "2f7f8f92-4287-4f30-91b1-7aca9ab4fdaf"
+        }
     }
 ]

@@ -20,9 +20,21 @@ class TestHouse(BaseTestCase):
         response = self.get_delete_response('houses:create')
         self.assertEqual(200, response.status_code)
 
+    def test_get_not_paid_houses_succeeds(self):
+        response = self.get_delete_response(
+            'houses:create', query_kwargs={'is_paid': False})
+        self.assertEqual(200, response.status_code)
+
+    def test_get_paid_houses_succeeds(self):
+        response = self.get_delete_response(
+            'houses:create', query_kwargs={'is_paid': True})
+        self.assertEqual(200, response.status_code)
+        self.assertEqual(response.json(), [])
+
     def test_get_single_house_succeeds(self):
         house_id = House.objects.first().identifier
-        response = self.get_delete_response('houses:crud', identifier=house_id)
+        response = self.get_delete_response(
+            'houses:crud', 'get', identifier=house_id)
         self.assertEqual(200, response.status_code)
 
     def test_update_single_house_succeeds(self):
@@ -31,7 +43,7 @@ class TestHouse(BaseTestCase):
             'houses:crud', data=self.house_data(is_occupied='true'),
             method='put', identifier=house_id)
         self.assertEqual(200, response.status_code)
-        self.assertEquals(response.json()['is_occupied'],True)
+        self.assertEquals(response.json()['is_occupied'], True)
 
     def test_delete_house_succeeds(self):
         house_id = House.objects.first().identifier
