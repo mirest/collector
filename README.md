@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.com/kimbugp/collector.svg?token=qaBKMRpXjcSqxNFYXbYq&branch=develop)](https://travis-ci.com/kimbugp/collector)
+[![Build Status](https://travis-ci.com/mirest/collector.svg?branch=develop)](https://travis-ci.com/mirest/collector)
+[![Coverage Status](https://coveralls.io/repos/github/mirest/collector/badge.svg?branch=develop)](https://coveralls.io/github/mirest/collector?branch=develop)
 # Collector API
 Tracks tenants payments
 
