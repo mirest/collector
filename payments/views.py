@@ -1,7 +1,7 @@
+from django_filters import rest_framework as filters
 from rest_framework.generics import (ListCreateAPIView,
                                      RetrieveUpdateDestroyAPIView)
 from rest_framework.response import Response
-from django_filters import rest_framework as filters
 
 from .models import Invoices
 from .serializers import InvoicesSerializer
@@ -20,5 +20,5 @@ class SingleInvoiceView(RetrieveUpdateDestroyAPIView):
     lookup_field = 'identifier'
 
     def destroy(self, request, *args, **kwargs):
-        response = super().destroy(request, *args, **kwargs)
+        response = super().destroy(request, *args, **kwargs)  # noqa
         return Response({"detail": "successfully deleted"})

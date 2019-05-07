@@ -1,13 +1,9 @@
-from datetime import datetime, timedelta
 
-import jwt
-from django.contrib.auth.models import (
-    AbstractBaseUser, BaseUserManager, PermissionsMixin
-)
+from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
+                                        PermissionsMixin)
 from django.db import models
-from utils.base_model import BaseModel
 
-from config.default import SECRET_KEY
+from utils.base_model import BaseModel
 
 
 class UserManager(BaseUserManager):
@@ -28,7 +24,7 @@ class UserManager(BaseUserManager):
     def create_superuser(self, email, password, **extra_fields):
         extra_fields.setdefault('is_superuser', True)
         extra_fields.setdefault('is_staff', True)
-        user = self.create_user(email, password, **extra_fields)
+        return self.create_user(email, password, **extra_fields)
 
 
 class User(BaseModel, AbstractBaseUser, PermissionsMixin):

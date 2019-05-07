@@ -1,4 +1,3 @@
-from django.db.models.query import QuerySet
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from rest_framework.generics import (ListCreateAPIView,
@@ -27,5 +26,5 @@ class SingleHouseView(RetrieveUpdateDestroyAPIView):
     lookup_field = 'identifier'
 
     def destroy(self, request, *args, **kwargs):
-        response = super().destroy(request, *args, **kwargs)
+        response = super().destroy(request, *args, **kwargs)  # noqa
         return Response({"detail": "successfully deleted"})

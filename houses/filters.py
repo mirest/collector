@@ -1,6 +1,5 @@
 from datetime import datetime
 
-import django_filters
 from django.db.models import Q
 from django_filters import FilterSet, rest_framework
 

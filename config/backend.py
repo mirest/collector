@@ -1,9 +1,8 @@
-from rest_framework.authentication import BaseAuthentication, get_authorization_header
-from rest_framework import exceptions, HTTP_HEADER_ENCODING
-
-from social_django.utils import load_backend, load_strategy
+from rest_framework import HTTP_HEADER_ENCODING, exceptions
+from rest_framework.authentication import (BaseAuthentication,
+                                           get_authorization_header)
 from social_core.exceptions import MissingBackend
-from social_core.utils import requests
+from social_django.utils import load_backend, load_strategy
 
 
 class SocialAuthentication(BaseAuthentication):
@@ -23,7 +22,7 @@ class SocialAuthentication(BaseAuthentication):
             msg = 'Invalid token header. No credentials provided.'
             raise exceptions.AuthenticationFailed(msg)
         elif len(auth) > 3:
-            msg = 'Invalid token header. Token string should not contain spaces.'
+            msg = 'Invalid token header. Token string should not contain spaces.'  # noqa
             raise exceptions.AuthenticationFailed(msg)
 
         token = auth[2]
