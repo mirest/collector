@@ -23,6 +23,11 @@ django-filter = "*"
 python-dateutil = "==2.7.5"
 django-background-tasks = "*"
 whitenoise = "*"
+coverage = "*"
+flake8 = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-django = "*"
 
 [requires]
 python_version = "3.7"

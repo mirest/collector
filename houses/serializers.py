@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import House
 from authentication.serializer import UserSerializer
-from payments.serializers import InvoicesSerializer
 
 
 class HouseSerializer(serializers.ModelSerializer):

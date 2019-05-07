@@ -1,6 +1,4 @@
 from django.db import models
-from django.db.models import Sum
-from django.db.models.signals import post_save, pre_save
 
 from authentication.models import User
 from houses.models import House

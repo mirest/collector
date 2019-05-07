@@ -1,4 +1,4 @@
-from dateutil.relativedelta import *
+from dateutil.relativedelta import *  # noqa
 from payments.models import Invoices
 from datetime import datetime
 from houses.models import House
@@ -33,11 +33,11 @@ def invoice_date_generator(instance, *args, **kwargs):
 
 def generate_dates(amount_paid, house_rate, start_date, last_receipt):
     months = calculate_months(amount_paid, house_rate)
-    if last_receipt is not None:
+    if last_receipt is not None and last_receipt.end_date:
         start = last_receipt.end_date
     else:
         start = start_date if start_date else datetime.now().date()
-    end = start + relativedelta(months=months)
+    end = start + relativedelta(months=months)  # noqa
     return start, end
 
 

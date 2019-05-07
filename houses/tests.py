@@ -1,8 +1,5 @@
-from django.test import TestCase
-from rest_framework.test import APIClient
-from django.urls import reverse
-import json
 from tests.base import BaseTestCase
+from unittest.mock import patch
 from .models import House
 
 
@@ -43,7 +40,7 @@ class TestHouse(BaseTestCase):
             'houses:crud', data=self.house_data(is_occupied='true'),
             method='put', identifier=house_id)
         self.assertEqual(200, response.status_code)
-        self.assertEquals(response.json()['is_occupied'], True)
+        self.assertEqual(response.json()['is_occupied'], True)
 
     def test_delete_house_succeeds(self):
         house_id = House.objects.first().identifier
@@ -52,6 +49,16 @@ class TestHouse(BaseTestCase):
                                             method='delete')
         self.assertEqual(200, response.status_code)
         self.assertEqual(response.json(), {'detail': 'successfully deleted'})
+
+    def test_get_model_str(self):
+        house = House.objects.first()
+        assert house.__str__() == house.house_name
+
+    @patch('houses.models.House.invoices')
+    def test_get_model_is_paid(self, invoice):
+        invoice.return_value = True
+        house = House.objects.first()
+        self.assertEqual(house.is_paid, True)
 
     @classmethod
     def house_data(self, **kwargs):
