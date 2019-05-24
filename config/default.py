@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'payments.apps.PaymentsConfig',
     'rest_framework_social_oauth2',
     'django_filters',
+    'corsheaders',
 
 ]
 
@@ -59,8 +60,13 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
+CORS_ORIGIN_WHITELIST = (
+    'http://localhost:3000',
+    "http://127.0.0.1:3000"
+)
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
