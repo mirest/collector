@@ -44,5 +44,9 @@ class UsersView(generics.ListAPIView):
     """Get all tenants
     """
     serializer_class = UserSerializer
-    pagination_class = None
     queryset = User.objects.filter(is_tenant=True)
+
+
+class TenantsView(UsersView):
+    "Get all users"
+    pagination_class = None
