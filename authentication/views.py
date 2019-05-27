@@ -38,3 +38,10 @@ class UserView(generics.RetrieveAPIView):
     def get(self, request):
         serializer = self.serializer_class(request.user)
         return Response(serializer.data)
+
+
+class UsersView(generics.ListAPIView):
+    """Get all tenants
+    """
+    serializer_class = UserSerializer
+    queryset = User.objects.filter(is_tenant=True)
