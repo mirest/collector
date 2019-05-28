@@ -8,13 +8,13 @@
         "date_created": "2019-04-25T18:29:49.629Z",
         "updated_at": "2019-04-25T18:29:49.629Z",
         "username": "kimbugp",
-        "email": "kimbugwe.simon-pete@andela.com",
-        "name": "dfghjk",
+        "email": "kimbugwe.simon-peter@andela.com",
+        "name": "Kimbugwe Simon Peter",
         "phonenumber": "true",
         "is_tenant": true,
-        "is_landlord": false,
-        "is_admin": false,
-        "is_staff": false,
+        "is_landlord": true,
+        "is_admin": true,
+        "is_staff": true,
         "groups": [],
         "user_permissions": []
     }

@@ -2,7 +2,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from rest_framework.generics import (ListCreateAPIView,
                                      RetrieveUpdateDestroyAPIView)
-from rest_framework.permissions import DjangoModelPermissions, IsAuthenticated
+from rest_framework.permissions import (
+    DjangoModelPermissions, IsAdminUser, IsAuthenticated)
 from rest_framework.response import Response
 
 from .filters import HouseFilter
@@ -17,7 +18,7 @@ class HouseView(ListCreateAPIView):
     serializer_class = HouseSerializer
     queryset = House.objects.all()
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, )
-    permission_classes = (DjangoModelPermissions, IsAuthenticated)
+    permission_classes = (DjangoModelPermissions, IsAdminUser)
     filter_class = HouseFilter
     search_fields = ('tenant_id__name',)
 
