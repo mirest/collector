@@ -4,6 +4,7 @@ from rest_framework.permissions import (
     DjangoModelPermissions, IsAdminUser, IsAuthenticated)
 from rest_framework.response import Response
 from social_django.utils import load_backend, load_strategy
+from social_core.exceptions import SocialAuthBaseException
 
 from authentication.models import User
 
@@ -21,14 +22,14 @@ class SocialAuthView(generics.CreateAPIView):
             request.backend = load_backend(strategy, backend, None)
             user = request.backend.do_auth(
                 serializer.validated_data['access_token'])
-        except Exception as e:
-            return Response({"error": str(e)})
+        except (SocialAuthBaseException) as e:
+            return Response({"error": str(e)}, status=400)
         if user:
             login(request, user)
             return Response({'email': user.email,
                              'username': user.username
                              })
-        return Response({"error": "unknown login error"})
+        return Response({"error": "unknown login error"}, status=400)
 
 
 class UserView(generics.RetrieveAPIView):
