@@ -1,13 +1,14 @@
 from django.contrib.auth import login
 from rest_framework import generics
-from rest_framework.permissions import (
-    DjangoModelPermissions, IsAdminUser, IsAuthenticated)
+from rest_framework.permissions import (DjangoModelPermissions, IsAdminUser,
+                                        IsAuthenticated)
 from rest_framework.response import Response
+from social_core.exceptions import SocialAuthBaseException
 from social_django.utils import load_backend, load_strategy
 
 from authentication.models import User
 
-from .serializer import SocialSerializer, UserSerializer
+from .serializer import SocialSerializer, TenantSerializer
 
 
 class SocialAuthView(generics.CreateAPIView):
@@ -21,18 +22,18 @@ class SocialAuthView(generics.CreateAPIView):
             request.backend = load_backend(strategy, backend, None)
             user = request.backend.do_auth(
                 serializer.validated_data['access_token'])
-        except Exception as e:
-            return Response({"error": str(e)})
+        except (SocialAuthBaseException) as e:
+            return Response({"error": str(e)}, status=400)
         if user:
             login(request, user)
             return Response({'email': user.email,
                              'username': user.username
                              })
-        return Response({"error": "unknown login error"})
+        return Response({"error": "unknown login error"}, status=400)
 
 
 class UserView(generics.RetrieveAPIView):
-    serializer_class = UserSerializer
+    serializer_class = TenantSerializer
     permission_classes = (DjangoModelPermissions, IsAuthenticated)
     queryset = User.objects.none()
 
@@ -41,15 +42,17 @@ class UserView(generics.RetrieveAPIView):
         return Response(serializer.data)
 
 
-class UsersView(generics.ListAPIView):
+class TenantsView(generics.ListAPIView):
     """Get all tenants
     """
-    serializer_class = UserSerializer
+    serializer_class = TenantSerializer
     queryset = User.objects.filter(is_tenant=True)
     permission_classes = (DjangoModelPermissions, IsAdminUser)
 
 
-class TenantsView(UsersView):
+class UsersView(generics.ListAPIView, generics.CreateAPIView):
     "Get all users"
     pagination_class = None
+    queryset = User.objects.all()
+    serializer_class = TenantSerializer
     permission_classes = (DjangoModelPermissions, IsAdminUser)
