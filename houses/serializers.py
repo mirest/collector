@@ -1,11 +1,11 @@
 from rest_framework import serializers
 from .models import House
-from authentication.serializer import UserSerializer
+from authentication.serializer import TenantSerializer
 
 
 class HouseSerializer(serializers.ModelSerializer):
-    tenant = UserSerializer(source='tenant_id', read_only=True)
-    owner = UserSerializer(source='owner_id', read_only=True)
+    tenant = TenantSerializer(source='tenant_id', read_only=True)
+    owner = TenantSerializer(source='owner_id', read_only=True)
 
     class Meta:
         model = House
