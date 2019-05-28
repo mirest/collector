@@ -19,7 +19,7 @@ class HouseView(ListCreateAPIView):
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, )
     permission_classes = (DjangoModelPermissions, IsAuthenticated)
     filter_class = HouseFilter
-    search_fields = ('tenant_id__name',)
+    search_fields = ('tenant_id__name','house_name','rate',)
 
 
 class SingleHouseView(RetrieveUpdateDestroyAPIView):
