@@ -1,6 +1,6 @@
 from django.contrib.auth import login
 from rest_framework import generics
-from rest_framework.permissions import DjangoModelPermissions
+from rest_framework.permissions import DjangoModelPermissions, IsAuthenticated
 from rest_framework.response import Response
 from social_django.utils import load_backend, load_strategy
 
@@ -45,8 +45,10 @@ class UsersView(generics.ListAPIView):
     """
     serializer_class = UserSerializer
     queryset = User.objects.filter(is_tenant=True)
+    permission_classes = (DjangoModelPermissions, IsAuthenticated)
 
 
 class TenantsView(UsersView):
     "Get all users"
     pagination_class = None
+    permission_classes = (DjangoModelPermissions, IsAuthenticated)
