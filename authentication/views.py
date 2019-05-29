@@ -26,9 +26,8 @@ class SocialAuthView(generics.CreateAPIView):
             return Response({"error": str(e)}, status=400)
         if user:
             login(request, user)
-            return Response({'email': user.email,
-                             'username': user.username
-                             })
+            serializer = TenantSerializer(user)
+            return Response(serializer.data)
         return Response({"error": "unknown login error"}, status=400)
 
 

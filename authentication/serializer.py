@@ -14,6 +14,7 @@ class TenantSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ('identifier', 'email', 'username', 'name', 'phonenumber')
+        fields = ('identifier', 'email', 'username', 'name', 'phonenumber',
+                  'is_staff', 'is_admin', 'is_tenant', 'is_landlord')
         extra_kwargs = {'identifier': {'read_only': True},
                         'name': {'required': True}}
