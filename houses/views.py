@@ -15,6 +15,7 @@ class HouseView(ListCreateAPIView):
     """
     Create and list Houses view
     """
+    pagination_class = None
     serializer_class = HouseSerializer
     queryset = House.objects.all()
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, )
