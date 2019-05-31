@@ -44,6 +44,7 @@ class UserView(generics.RetrieveAPIView):
 class TenantsView(generics.ListAPIView):
     """Get all tenants
     """
+    pagination_class = None
     serializer_class = TenantSerializer
     queryset = User.objects.filter(is_tenant=True)
     permission_classes = (DjangoModelPermissions, IsAdminUser)
