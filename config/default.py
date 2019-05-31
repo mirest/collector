@@ -157,7 +157,7 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PAGINATION_CLASS':
     'utils.paginator.CustomPageNumber',
-    'PAGE_SIZE': 5
+    'PAGE_SIZE': 10
 }
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
