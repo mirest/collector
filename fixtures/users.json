@@ -1,62 +1,82 @@
 [
-{
-    "model": "authentication.user",
-    "pk": "2f7f8f92-4287-4f30-91b1-7aca9ab4fdaf",
-    "fields": {
-        "password": "pbkdf2_sha256$120000$zVXCjZy0JzKB$Wwg1f/YOPoHPkXtytTr5Gzk7xxwhVNGOTTj3Rfajr8Q=",
-        "is_superuser": false,
-        "date_created": "2019-04-25T18:29:49.629Z",
-        "updated_at": "2019-04-25T18:29:49.629Z",
-        "username": "kimbugp",
-        "email": "kimbugwe.simon-peter@andela.com",
-        "name": "Kimbugwe Simon Peter",
-        "phonenumber": "true",
-        "is_tenant": true,
-        "is_landlord": true,
-        "is_admin": true,
-        "is_staff": true,
-        "groups": [],
-        "user_permissions": []
+    {
+        "model": "authentication.user",
+        "pk": "2f7f8f92-4287-4f30-91b1-7aca9ab4fdaf",
+        "fields": {
+            "password": "pbkdf2_sha256$120000$zVXCjZy0JzKB$Wwg1f/YOPoHPkXtytTr5Gzk7xxwhVNGOTTj3Rfajr8Q=",
+            "is_superuser": false,
+            "date_created": "2019-04-25T18:29:49.629Z",
+            "updated_at": "2019-04-25T18:29:49.629Z",
+            "username": "kimbugp",
+            "email": "kimbugwe.simon-peter@andela.com",
+            "name": "Kimbugwe Simon Peter",
+            "phonenumber": "true",
+            "is_tenant": true,
+            "is_landlord": true,
+            "is_admin": true,
+            "is_staff": true,
+            "groups": [
+                1
+            ],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authentication.user",
+        "pk": "8c884459-9da4-4716-8fc3-e64402572c20",
+        "fields": {
+            "password": "pbkdf2_sha256$120000$zVXCjZy0JzKB$Wwg1f/YOPoHPkXtytTr5Gzk7xxwhVNGOTTj3Rfajr8Q=",
+            "is_superuser": false,
+            "date_created": "2019-04-25T18:30:06.901Z",
+            "updated_at": "2019-04-25T18:30:06.901Z",
+            "username": "sebbss",
+            "email": "kimbugweimon-peter@andela.com",
+            "name": "dfghjk",
+            "phonenumber": "true",
+            "is_tenant": true,
+            "is_landlord": false,
+            "is_admin": false,
+            "is_staff": false,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "authentication.user",
+        "pk": "f6385b81-7017-4cd0-aef6-f47d99975b49",
+        "fields": {
+            "password": "pbkdf2_sha256$120000$zVXCjZy0JzKB$Wwg1f/YOPoHPkXtytTr5Gzk7xxwhVNGOTTj3Rfajr8Q=",
+            "last_login": "2019-04-25T18:12:49.387Z",
+            "is_superuser": true,
+            "date_created": "2019-04-25T18:10:16.655Z",
+            "updated_at": "2019-04-25T18:10:16.655Z",
+            "username": "simon",
+            "email": "simon@simon.com",
+            "name": "dfghjk",
+            "phonenumber": "true",
+            "is_tenant": true,
+            "is_landlord": false,
+            "is_admin": false,
+            "is_staff": true,
+            "groups": [],
+            "user_permissions": []
+        }
+    },
+    {
+        "model": "auth.group",
+        "pk": 1,
+        "fields": {
+            "name": "Landlord",
+            "permissions": [
+                21,
+                22,
+                23,
+                45,
+                46,
+                47,
+                49,
+                52
+            ]
+        }
     }
-},
-{
-    "model": "authentication.user",
-    "pk": "8c884459-9da4-4716-8fc3-e64402572c20",
-    "fields": {
-        "password": "pbkdf2_sha256$120000$zVXCjZy0JzKB$Wwg1f/YOPoHPkXtytTr5Gzk7xxwhVNGOTTj3Rfajr8Q=",
-        "is_superuser": false,
-        "date_created": "2019-04-25T18:30:06.901Z",
-        "updated_at": "2019-04-25T18:30:06.901Z",
-        "username": "sebbss",
-        "email": "kimbugweimon-peter@andela.com",
-        "name": "dfghjk",
-        "phonenumber": "true",
-        "is_tenant": true,
-        "is_landlord": false,
-        "is_admin": false,
-        "is_staff": false,
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "authentication.user",
-    "pk": "f6385b81-7017-4cd0-aef6-f47d99975b49",
-    "fields": {
-        "password": "pbkdf2_sha256$120000$zVXCjZy0JzKB$Wwg1f/YOPoHPkXtytTr5Gzk7xxwhVNGOTTj3Rfajr8Q=",        "last_login": "2019-04-25T18:12:49.387Z",
-        "is_superuser": true,
-        "date_created": "2019-04-25T18:10:16.655Z",
-        "updated_at": "2019-04-25T18:10:16.655Z",
-        "username": "simon",
-        "email": "simon@simon.com",
-        "name": "dfghjk",
-        "phonenumber": "true",
-        "is_tenant": true,
-        "is_landlord": false,
-        "is_admin": false,
-        "is_staff": true,
-        "groups": [],
-        "user_permissions": []
-    }
-}
 ]

@@ -1,5 +1,5 @@
 import jwt
-from rest_framework import HTTP_HEADER_ENCODING, authentication, exceptions
+from rest_framework import HTTP_HEADER_ENCODING, exceptions
 from rest_framework.authentication import (BaseAuthentication,
                                            get_authorization_header)
 from social_core.exceptions import MissingBackend

@@ -1,5 +1,7 @@
-from tests.base import BaseTestCase
 from unittest.mock import patch
+
+from tests.base import BaseTestCase
+
 from .models import House
 
 
@@ -26,7 +28,10 @@ class TestHouse(BaseTestCase):
         response = self.get_delete_response(
             'houses:create', query_kwargs={'is_paid': True})
         self.assertEqual(200, response.status_code)
-        self.assertEqual(response.json(), [])
+        self.assertEqual(response.json(), {
+                         'count': 0, 'next': None,
+                         'current': 1, 'previous': None,
+                         'results': []})
 
     def test_get_single_house_succeeds(self):
         house_id = House.objects.first().identifier
