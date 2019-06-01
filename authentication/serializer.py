@@ -26,7 +26,7 @@ class LoginSerializer(serializers.Serializer):
 
         if user is None:
             raise serializers.ValidationError(
-                'A user with this email and password was not found.'
+                'A user with this username and password was not found.'
             )
         return {
             'email': user.email,
