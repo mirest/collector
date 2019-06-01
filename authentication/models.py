@@ -1,8 +1,12 @@
 
+from datetime import datetime, timedelta
+
+import jwt
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
                                         PermissionsMixin)
 from django.db import models
 
+from config import default
 from utils.base_model import BaseModel
 
 
@@ -51,3 +55,12 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+
+    def token(self, x=1):
+        payload = {
+            "email": self.email,
+            "exp": datetime.now() + timedelta(days=x),
+            "username": self.username
+        }
+        jwt_token = jwt.encode(payload, default.SECRET_KEY)
+        return jwt_token.decode("utf-8")
