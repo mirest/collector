@@ -5,6 +5,8 @@ from django.urls import reverse as django_reverse
 from django.utils.http import urlencode
 from rest_framework.test import APIClient
 
+from authentication.models import User
+
 
 class BaseTestCase(TestCase):
     fixtures = ['fixtures/users.json', 'fixtures/houses.json',
@@ -12,6 +14,8 @@ class BaseTestCase(TestCase):
 
     def setUp(self):
         self.client = APIClient()
+        user = User.objects.get(username='kimbugp')
+        self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + user.token())
 
     def post_put_response(self, url_name, data, method='post', **kwargs):
         self.assertIn(method, ['post', 'put'], msg=(

@@ -1,5 +1,7 @@
-from tests.base import BaseTestCase
 from unittest.mock import patch
+
+from tests.base import BaseTestCase
+
 from .models import House
 
 

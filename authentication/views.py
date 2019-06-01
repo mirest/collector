@@ -1,14 +1,14 @@
 from django.contrib.auth import login
 from rest_framework import generics
-from rest_framework.permissions import (DjangoModelPermissions, IsAdminUser,
-                                        IsAuthenticated)
+from rest_framework.permissions import (AllowAny, DjangoModelPermissions,
+                                        IsAdminUser, IsAuthenticated)
 from rest_framework.response import Response
 from social_core.exceptions import SocialAuthBaseException
 from social_django.utils import load_backend, load_strategy
 
 from authentication.models import User
 
-from .serializer import SocialSerializer, TenantSerializer
+from .serializer import LoginSerializer, SocialSerializer, TenantSerializer
 
 
 class SocialAuthView(generics.CreateAPIView):
@@ -29,6 +29,18 @@ class SocialAuthView(generics.CreateAPIView):
             serializer = TenantSerializer(user)
             return Response(serializer.data)
         return Response({"error": "unknown login error"}, status=400)
+
+
+class LoginView(generics.CreateAPIView):
+    """User login view
+
+    Args:
+        email (string): user email
+        password (string): user password
+    """
+    serializer_class = LoginSerializer
+    queryset = User.objects.filter(is_tenant=True)
+    permission_classes = (AllowAny,)
 
 
 class UserView(generics.RetrieveAPIView):

@@ -1,2 +1,2 @@
 [run]
-omit = tests/* ,manage.py, authentication/*, config/*,utils/*
+omit = tests/* ,manage.py, config/*,utils/*
