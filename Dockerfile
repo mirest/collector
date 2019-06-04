@@ -1,8 +1,11 @@
-FROM python:3
 
-WORKDIR /usr/src/app
+FROM python:3.7
 
-COPY requirements.txt ./
-RUN pip install pipenv
-RUN pipenv install
 COPY . .
+
+ENV PYTHONUNBUFFERED 1
+RUN pip install pipenv &&\
+    pipenv install --python 3.7 --skip-lock&&\
+    pipenv shell&&\
+    pipenv install --skip-lock
+CMD ["gunicorn","config.wsgi:application","--workers 3"]
