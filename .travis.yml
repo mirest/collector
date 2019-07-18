@@ -7,8 +7,8 @@ addons:
 
 install: 
   - pip install pipenv
-  - pipenv install
-  - pip install coveralls
+  - pipenv install --skip-lock
+  - pip install coveralls flake8
 
 before_script:
   - psql -c 'create database testdb;' -U postgres

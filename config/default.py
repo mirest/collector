@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'social_django',
     'houses.apps.HousesConfig',
     'payments.apps.PaymentsConfig',
-    'rest_framework_social_oauth2',
     'django_filters',
     'corsheaders',
 
