@@ -5,6 +5,7 @@ import jwt
 from django.contrib.auth.models import (AbstractBaseUser, BaseUserManager,
                                         PermissionsMixin)
 from django.db import models
+from django.utils import timezone
 
 from config import default
 from utils.base_model import BaseModel
@@ -59,8 +60,11 @@ class User(BaseModel, AbstractBaseUser, PermissionsMixin):
     def token(self, x=1):
         payload = {
             "email": self.email,
-            "exp": datetime.now() + timedelta(days=x),
+            "exp": timezone.now() + timedelta(days=x),
             "username": self.username
         }
-        jwt_token = jwt.encode(payload, default.SECRET_KEY)
-        return jwt_token.decode("utf-8")
+        jwt_token = jwt.encode(payload, default.SECRET_KEY, algorithm='HS256')
+        # In newer PyJWT versions, jwt.encode returns a string directly
+        if isinstance(jwt_token, bytes):
+            return jwt_token.decode("utf-8")
+        return jwt_token
