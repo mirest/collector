@@ -20,7 +20,7 @@ class HouseView(ListCreateAPIView):
     queryset = House.objects.all()
     filter_backends = (DjangoFilterBackend, filters.SearchFilter, )
     permission_classes = (DjangoModelPermissions, IsAdminUser)
-    filter_class = HouseFilter
+    filterset_class = HouseFilter
     search_fields = ('tenant_id__name', 'house_name',
                      'rate', 'tenant_id__email')
 

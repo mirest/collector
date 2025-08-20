@@ -20,8 +20,8 @@ class Invoices(BaseModel):
     invoice_no = models.CharField(max_length=255, blank=True)
 
     house = models.ForeignKey(
-        House, unique=False, on_delete='CASCADE', null=False,
+        House, unique=False, on_delete=models.CASCADE, null=False,
         related_name='invoices')
 
     tenant = models.ForeignKey(
-        User, unique=False, on_delete='CASCADE', related_name='tenant')
+        User, unique=False, on_delete=models.CASCADE, related_name='tenant')
